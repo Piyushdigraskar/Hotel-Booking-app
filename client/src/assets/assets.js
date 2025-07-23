@@ -75,6 +75,13 @@ export const assets = {
 
 export const cities = ["Dubai", "Singapore", "New York", "London"];
 
+const getExpiryDate = () => {
+  const now = new Date();
+  const lastDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+  const options = { month: "long", day: "numeric", year: "numeric" };
+  return lastDate.toLocaleDateString("en-US", options);
+};
+
 // Exclusive Offers Dummy Data
 export const exclusiveOffers = [
   {
@@ -82,7 +89,7 @@ export const exclusiveOffers = [
     title: "Summer Escape Package",
     description: "Enjoy a complimentary night and daily breakfast",
     priceOff: 25,
-    expiryDate: "Aug 31",
+    expiryDate: getExpiryDate(),
     image: exclusiveOfferCardImg1,
   },
   {
@@ -90,7 +97,7 @@ export const exclusiveOffers = [
     title: "Romantic Getaway",
     description: "Special couples package including spa treatment",
     priceOff: 20,
-    expiryDate: "Sep 20",
+    expiryDate: getExpiryDate(),
     image: exclusiveOfferCardImg2,
   },
   {
@@ -99,7 +106,7 @@ export const exclusiveOffers = [
     description:
       "Book 60 days in advance and save on your stay at any of our luxury properties worldwide.",
     priceOff: 30,
-    expiryDate: "Sep 25",
+    expiryDate: getExpiryDate(),
     image: exclusiveOfferCardImg3,
   },
 ];
