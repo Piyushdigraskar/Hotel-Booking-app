@@ -73,7 +73,7 @@ export const assets = {
   totalRevenueIcon,
 };
 
-export const cities = ["Dubai", "Singapore", "New York", "London"];
+export const cities = ["Mumbai", "Delhi", "Bangalore", "Goa"];
 
 const getExpiryDate = () => {
   const now = new Date();
@@ -115,33 +115,33 @@ export const exclusiveOffers = [
 export const testimonials = [
   {
     id: 1,
-    name: "Emma Rodriguez",
-    address: "Barcelona, Spain",
+    name: "Aarav Mehta",
+    address: "Mumbai, India",
     image:
       "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200",
     rating: 5,
     review:
-      "I've used many booking platforms before, but none compare to the personalized experience and attention to detail that QuickStay provides.",
+      "NomadNest made our trip to Goa stress-free. The hotels were well-curated and booking was super easy. Will definitely use again!",
   },
   {
     id: 2,
-    name: "Liam Johnson",
-    address: "New York, USA",
+    name: "Diya Sharma",
+    address: "Delhi, India",
     image:
-      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200",
+      "https://images.unsplash.com/photo-1701615004837-40d8573b6652?q=80&w=200",
     rating: 4,
     review:
-      "QuickStay exceeded my expectations. The booking process was seamless, and the hotels were absolutely top-notch. Highly recommended!",
+      "I loved how NomadNest gave me great hotel options within my budget during my Jaipur vacation. Super helpful filters too!",
   },
   {
     id: 3,
-    name: "Sophia Lee",
-    address: "Seoul, South Korea",
+    name: "Rohan Nair",
+    address: "Bangalore, India",
     image:
-      "https://images.unsplash.com/photo-1701615004837-40d8573b6652?q=80&w=200",
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200",
     rating: 5,
     review:
-      "Amazing service! I always find the best luxury accommodations through QuickStay. Their recommendations never disappoint!",
+      "I used NomadNest for a work trip to Hyderabad — got amazing last-minute deals and smooth check-ins. Highly recommend!",
   },
 ];
 
@@ -189,7 +189,7 @@ export const userDummyData = {
   createdAt: "2025-03-25T09:29:16.367Z",
   updatedAt: "2025-04-10T06:34:48.719Z",
   __v: 1,
-  recentSearchedCities: ["New York"],
+  recentSearchedCities: ["Mumbai"],
 };
 
 // Hotel Dummy Data
@@ -199,7 +199,7 @@ export const hotelDummyData = {
   address: "Main Road  123 Street , 23 Colony",
   contact: "+0123456789",
   owner: userDummyData,
-  city: "New York",
+  city: "Mumbai",
   createdAt: "2025-04-10T06:22:11.663Z",
   updatedAt: "2025-04-10T06:22:11.663Z",
   __v: 0,
