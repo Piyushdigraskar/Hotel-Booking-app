@@ -37,6 +37,7 @@ import listIcon from "./listIcon.svg";
 import uploadArea from "./uploadArea.svg";
 import totalBookingIcon from "./totalBookingIcon.svg";
 import totalRevenueIcon from "./totalRevenueIcon.svg";
+import profile_pic from "./profile_pic.JPG";
 
 export const assets = {
   logo,
@@ -71,6 +72,7 @@ export const assets = {
   uploadArea,
   totalBookingIcon,
   totalRevenueIcon,
+  profile_pic,
 };
 
 export const cities = ["Mumbai", "Delhi", "Bangalore", "Goa"];
@@ -183,8 +185,9 @@ export const userDummyData = {
   _id: "user_2unqyL4diJFP1E3pIBnasc7w8hP",
   username: "Great Stack",
   email: "user.greatstack@gmail.com",
-  image:
-    "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvdXBsb2FkZWQvaW1nXzJ2N2c5YVpSSEFVYVUxbmVYZ2JkSVVuWnFzWSJ9",
+  image: profile_pic,
+  // image:
+  //   "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvdXBsb2FkZWQvaW1nXzJ2N2c5YVpSSEFVYVUxbmVYZ2JkSVVuWnFzWSJ9",
   role: "hotelOwner",
   createdAt: "2025-03-25T09:29:16.367Z",
   updatedAt: "2025-04-10T06:34:48.719Z",
