@@ -4,9 +4,9 @@ export const getUserData = async (req, res) => {
   try {
     const role = req.user.role;
     const recentSearchedCities = req.user.recentSearchedCities;
-    res.json({ success: true, role, recentSearchedCities });
+    res.status(200).json({ success: true, role, recentSearchedCities });
   } catch (error) {
-    res.json({ success: false, message: error.message });
+    res.status(400).json({ success: false, message: error.message });
   }
 };
 
