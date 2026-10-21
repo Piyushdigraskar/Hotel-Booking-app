@@ -25,26 +25,60 @@ export const createRoom = async (req, res) => {
       pricePerNight: +pricePerNight,
       amenities: JSON.parse(amenities),
       images,
-
     });
 
-    res.status(201).json({success: true, message: "Room created successfully"});
+    res
+      .status(201)
+      .json({ success: true, message: "Room created successfully" });
   } catch (error) {
-    res.status(400).json({success: false, message: error.message});
+    res.status(400).json({ success: false, message: error.message });
   }
 };
 
 export const getRooms = async (req, res) => {
   try {
-  } catch (error) {}
+    //first populate fetch fetch the hotel which the room is from
+    //after that the second populate fetches owner and its image from that hotel
+    const rooms = await Room.find({ isAvailable: true })
+      .populate({
+        path: "hotel",
+        populate: {
+          path: "owner",
+          select: "image",
+        },
+      })
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({ success: true, rooms });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
 };
 
 export const getOwnerRooms = async (req, res) => {
   try {
-  } catch (error) {}
+    const hotelData = await Hotel({ owner: req.auth.userId });
+    const rooms = await Room.find({ hotel: hotelData._id.toString() }).populate(
+      "hotel",
+    );
+    res.status(200).json({ success: true, rooms });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
 };
 
 export const toggleRoomAvailability = async (req, res) => {
   try {
-  } catch (error) {}
+    const { roomId } = req.body;
+
+    const roomData = await Room.findById(roomId);
+
+    roomData.isAvailable = !roomData.isAvailable;
+    await roomData.save();
+    res
+      .status(200)
+      .json({ success: true, message: "Room availability Updated" });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
 };
