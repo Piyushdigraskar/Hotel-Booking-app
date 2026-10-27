@@ -10,24 +10,22 @@ export const getUserData = async (req, res) => {
   }
 };
 
+export const storeRecentSearchedCities = async (req, res) => {
+  try {
+    const { recentSearchedCities } = req.body;
+    const user = await req.user;
 
-
-export const storeRecentSearchedCities = async(req, res)=> {
-    try {
-        const {recentSearchedCities} = req.body;
-        const user = await req.user;
-
-        if(user.recentSearchedCities.length < 3){
-            user.recentSearchedCities.push(recentSearchedCities);
-        }else{
-            //The Array.prototype.shift() method in JavaScript removes the first element from an array
-            user.recentSearchedCities.shift();
-            user.recentSearchedCities.push(recentSearchedCities);
-        }
-
-        await user.save();
-        res.status(200).json({success: true, message: "City Added"});
-    } catch (error) {
-        res.status(400).json({success: false, message: error.message});
+    if (user.recentSearchedCities.length < 3) {
+      user.recentSearchedCities.push(recentSearchedCities);
+    } else {
+      //The Array.prototype.shift() method in JavaScript removes the first element from an array
+      user.recentSearchedCities.shift();
+      user.recentSearchedCities.push(recentSearchedCities);
     }
-}
+
+    await user.save();
+    res.status(200).json({ success: true, message: "City Added" });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};

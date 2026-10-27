@@ -229,7 +229,7 @@ const AllRooms = () => {
             {priceRange.map((range, index) => (
               <CheckBox
                 key={index}
-                label={`$${currency} ${range}`}
+                label={`${currency} ${range}`}
                 selected={selectedFilters.priceRange.includes(range)}
                 onChange={(checked) =>
                   handleFilterChange(checked, range, "priceRange")

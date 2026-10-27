@@ -75,9 +75,9 @@ const Navbar = () => {
       {/* Desktop Nav */}
       <div className="hidden md:flex items-center gap-4 lg:gap-8">
         {navLinks.map((link, i) => (
-          <a
+          <Link
             key={i}
-            href={link.path}
+            to={link.path}
             className={`group flex flex-col gap-0.5 ${
               isScrolled ? "text-gray-700" : "text-white"
             }`}
@@ -88,7 +88,7 @@ const Navbar = () => {
                 isScrolled ? "bg-gray-700" : "bg-white"
               } h-0.5 w-0 group-hover:w-full transition-all duration-300`}
             />
-          </a>
+          </Link>
         ))}
         {user && (
           <button
@@ -174,9 +174,9 @@ const Navbar = () => {
         </button>
 
         {navLinks.map((link, i) => (
-          <a key={i} href={link.path} onClick={() => setIsMenuOpen(false)}>
+          <Link key={i} to={link.path} onClick={() => setIsMenuOpen(false)}>
             {link.name}
-          </a>
+          </Link>
         ))}
 
         {user && (
