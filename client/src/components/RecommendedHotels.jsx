@@ -15,11 +15,6 @@ const RecommendedHotels = () => {
     setRecommended(filteredHotels);
   };
 
-  console.log({
-    availableRoomCities: rooms.map((r) => r.hotel?.city),
-    userSearchedCities: searchedCities,
-  });
-
   useEffect(() => {
     filterHotels();
   }, [rooms, searchedCities]);
