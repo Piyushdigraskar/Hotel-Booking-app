@@ -9,9 +9,7 @@ export const registerHotel = async (req, res) => {
     const hotel = await Hotel.findOne({ owner });
 
     if (hotel) {
-      return res
-        .status(409)
-        .json({ success: false, message: "Hotel already registered" });
+      return res.json({ success: false, message: "Hotel already registered" });
     }
     await Hotel.create({ name, address, contact, city, owner });
     await User.findByIdAndUpdate(owner, { role: "hotelOwner" });
@@ -20,6 +18,6 @@ export const registerHotel = async (req, res) => {
       .status(201)
       .json({ success: true, message: "Hotel registered successfully" });
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 };

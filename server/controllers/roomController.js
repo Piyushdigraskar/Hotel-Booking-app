@@ -7,9 +7,7 @@ export const createRoom = async (req, res) => {
     const { roomType, pricePerNight, amenities } = req.body;
     const hotel = await Hotel.findOne({ owner: req.auth.userId });
     if (!hotel) {
-      return res
-        .status(404)
-        .json({ success: false, message: "No hotel Found" });
+      return res.json({ success: false, message: "No hotel Found" });
     }
     const uploadImages = req.files.map(async (file) => {
       const response = await cloudinary.uploader.upload(file.path);
@@ -31,7 +29,7 @@ export const createRoom = async (req, res) => {
       .status(201)
       .json({ success: true, message: "Room created successfully" });
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 };
 
@@ -51,7 +49,7 @@ export const getRooms = async (req, res) => {
 
     res.status(200).json({ success: true, rooms });
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 };
 
@@ -63,7 +61,7 @@ export const getOwnerRooms = async (req, res) => {
     );
     res.status(200).json({ success: true, rooms });
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 };
 
@@ -79,6 +77,6 @@ export const toggleRoomAvailability = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Room availability Updated" });
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 };

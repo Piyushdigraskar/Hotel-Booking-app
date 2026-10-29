@@ -6,7 +6,7 @@ export const getUserData = async (req, res) => {
     const recentSearchedCities = req.user.recentSearchedCities;
     res.status(200).json({ success: true, role, recentSearchedCities });
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 };
 
@@ -26,6 +26,6 @@ export const storeRecentSearchedCities = async (req, res) => {
     await user.save();
     res.status(200).json({ success: true, message: "City Added" });
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    res.json({ success: false, message: error.message });
   }
 };
