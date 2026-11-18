@@ -6,7 +6,7 @@ export const stripeWebhooks = async (req, res) => {
   //stripe gateway initialixe
   const stripeInstance = new stripe(process.env.STRIPE_SECRET_KEY);
 
-  const sig = req.headers("stripe-signature");
+  const sig = req.headers["stripe-signature"];
   let event;
   try {
     event = stripeInstance.webhooks.constructEvent(
@@ -15,7 +15,7 @@ export const stripeWebhooks = async (req, res) => {
       process.env.STRIPE_WEBHOOK_SECRET,
     );
   } catch (err) {
-    res.status(400).send(`Webhook error: ${err.message}`);
+    return res.status(400).send(`Webhook error: ${err.message}`);
   }
 
   if (event.type === "payment_intent.succeeded") {

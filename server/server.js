@@ -22,11 +22,12 @@ app.post(
   stripeWebhooks,
 );
 
+app.use("/api/clerk", clerkWebHooks);
+
 app.use(express.json());
 app.use(clerkMiddleware());
 
 //Api to listen clerkwebhooks
-app.use("/api/clerk", clerkWebHooks);
 
 app.get("/", (req, res) => res.send("API is working"));
 app.use("/api/user", userRouter);
@@ -37,3 +38,5 @@ app.use("/api/bookings", bookingRouter);
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+export default app;
