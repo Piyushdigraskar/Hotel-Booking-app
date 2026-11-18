@@ -3,7 +3,7 @@ import "./index.css";
 import { ClerkProvider } from "@clerk/clerk-react";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
-import { AppProvider } from "./context/appcontext.jsx";
+import { AppProvider } from "./context/AppContext.jsx";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
